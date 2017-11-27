@@ -1,4 +1,4 @@
-var posX=70, posY=200, obstX=640, obstX_2=1000, obstHeight=180,obstHeight_2=180, pontos=0, start=0;
+var posX=70, posY=200, obstX=640, obstX_2=1000, obstHeight=180,obstHeight_2=180, pontos=0, tela=0, recorde=0;
 function setup(){
 	createCanvas(640, 480);
 	
@@ -6,22 +6,41 @@ function setup(){
 
 function draw(){
 	background(0);
-	if(keyIsDown(32)){
-		start=1;
-	}
-	if(start==0){
-		textSize(16);
+
+	if(tela==0){
+		textSize(50);
 		fill(255);
-		text("aperte barra de espaço", 225, 240);
-	}	
+		text("Loppy Bird", 190, 100);
+		rect(100, 300, 50, 50);
+		rect(300, 300, 50, 50);
+		rect(500, 300, 50, 50);
+		}
+		if(mouseIsPressed && (mouseX>=100 && mouseX<= 150) && (mouseY>=300 && mouseY<= 350)){
+			tela=1;
+		}
+			
 	
+	if(tela==5){
+		textSize(50);
+		fill(255);
+		text("Game Over", 180, 280);
+		if(keyIsDown(32)){
+			tela=0;
+		}
+	}
+	if(tela==1){
 		textSize(14);
 		fill(255);
 		text(pontos+" pontos", 280, 90);
-	
-	if(start==1){
+		textSize(14);
+		fill(255);
+		text(recorde+" recorde", 100, 90);
+		if(pontos>recorde){
+			recorde=pontos;
+		}
 		if(obstX<posX&&obstX+48>posX&&obstHeight>=posY||obstX<=posX&&obstX+48>posX&&obstHeight+120<posY||obstX_2<posX&&obstX_2+48>posX&&obstHeight_2>=posY||obstX_2<=posX&&obstX_2+48>posX&&obstHeight_2+120<posY){
-		start=0;
+        
+		tela=5;
 		obstX=640;
 		obstX_2=1000;
 		pontos=0;
@@ -33,7 +52,7 @@ function draw(){
 		posY-=12;//pulo
 	}
 		else if(posY<480){
-		posY+=2.5;//gravidade
+		posY+=4;//gravidade
 	}
 	
 }
