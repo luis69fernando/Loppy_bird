@@ -1,8 +1,21 @@
 var posX=70, posY=200, obstX=640, obstX_2=1000, obstHeight=180,obstHeight_2=180, pontos=0, tela=0, recorde=0;
+var jogador = [], tempo=0;
 function setup(){
 	createCanvas(640, 480);
 	
 }
+function preload(){
+	for(i=1; i<=8; i++){
+		jogador[i]=loadimage("figuras/jogador/frame-"+i+".png");
+	}
+	
+}
+
+function jogador(){
+	anima= jogador[tempo];
+	image(anima, posX, posY)
+}
+
 
 function draw(){
 	background(0);
@@ -15,7 +28,7 @@ function draw(){
 		rect(300, 300, 50, 50);
 		rect(500, 300, 50, 50);
 		}
-		if(mouseIsPressed && (mouseX>=100 && mouseX<= 150) && (mouseY>=300 && mouseY<= 350)){
+		if(mouseIsPressed && (mouseX>=100 && mouseX<= 150) && (mouseY>=300 && mouseY<= 350)){//fase 1
 			tela=1;
 		}
 			
