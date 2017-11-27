@@ -79,7 +79,7 @@ function draw(){
 		textSize(14);
 		fill(255);
 		text(Math.round(pontos)+" pontos", 280, 90);
-		if(pontos>=3){
+		if(pontos>=24.5){
 			tela=4;
 			obstX=640;
 			obstX_2=1000;	
@@ -93,8 +93,8 @@ function draw(){
 		pontos=0;
 		posy=200
 	}
-		obstX-=2.5// velocidade do obstaculo
-		obstX_2-=2.5
+		obstX-=5// velocidade do obstaculo
+		obstX_2-=5
 		if (keyIsDown(32)&&posY>0){
 		posY-=12;//pulo
 	}
@@ -138,8 +138,8 @@ function draw(){
 		pontos=0;
 		posy=200
 	}
-		obstX-=4.5// velocidade do obstaculo
-		obstX_2-=4.5
+		obstX-=7.5// velocidade do obstaculo
+		obstX_2-=7.5
 		if (keyIsDown(32)&&posY>0){
 		posY-=12;//pulo
 	}
@@ -183,8 +183,8 @@ function draw(){
 		obstX_2=1000;	
 		posy=200
 	}
-		obstX-=6// velocidade do obstaculo
-		obstX_2-=6
+		obstX-=10// velocidade do obstaculo
+		obstX_2-=10
 		if (keyIsDown(32)&&posY>0){
 		posY-=12;//pulo
 	}
